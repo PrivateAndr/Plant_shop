@@ -77,7 +77,7 @@ WSGI_APPLICATION = 'flower_shop.wsgi.application'
 DATABASES = {
         'default': {
             'ENGINE': 'mssql',
-            'NAME': 'flower_shop',
+            'NAME': 'flower_shop_1',
             'USER': 'sa',
             'PASSWORD': '0606',
             'HOST': 'localhost',

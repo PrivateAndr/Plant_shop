@@ -15,8 +15,9 @@ class Category(models.Model):
         return self.name
 
 class Plant(models.Model):
+    id = models.BigAutoField(primary_key=True)
     category = models.ForeignKey(Category, related_name='plants', on_delete=models.CASCADE)
-    name = models.CharField(max_length=100, primary_key=True)
+    name = models.CharField(max_length=100)
     price = models.DecimalField(max_digits=20, decimal_places=1, default=Decimal(0.00))
     size = models.DecimalField(max_digits=20, decimal_places=1, default=Decimal(0.00))
     image = models.ImageField(upload_to='products/%Y/%m/%d', blank=True)
@@ -30,7 +31,7 @@ class Plant(models.Model):
     
     class Meta:
         ordering = ('name',)
-        index_together = (('slug'),)
+        index_together = (('id', 'slug'),)
 
     def __str__(self):
         return self.name
