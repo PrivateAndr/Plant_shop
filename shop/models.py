@@ -1,5 +1,6 @@
 from django.db import models
 from decimal import Decimal
+from django.urls import reverse
 
 
 class Category(models.Model):
@@ -13,6 +14,12 @@ class Category(models.Model):
 
     def __str__(self):
         return self.name
+    
+    def get_absolute_url(self):
+        return reverse("shop:plant_list_by_category", 
+                       args=[self.slug])
+    
+    
 
 class Plant(models.Model):
     id = models.BigAutoField(primary_key=True)
@@ -35,3 +42,8 @@ class Plant(models.Model):
 
     def __str__(self):
         return self.name
+    
+    def get_absolute_url(self):
+        return reverse('shop:plant_detail',
+                       args=[self.id, self.slug])
+    
