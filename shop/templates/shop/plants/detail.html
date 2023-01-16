@@ -8,7 +8,13 @@
         <img src="{% if plant.image %}{{ plant.image.url }}{% else %}{% static "img/no_image.png" %}{% endif %}">
         <h1>{{ plant.name }}</h1>
         <h2><a href="{{ plant.category.get_absolute_url }}">{{ plant.category }}</a></h2>
+        {% comment %} <p class="price">${{ plant.price }}</p>
+        {{ plant.description|linebreaks }} {% endcomment %}
         <p class="price">${{ plant.price }}</p>
-        {{ plant.description|linebreaks }}
+        <form action="{% url "cart:cart_add" plant.id %}" method="post">
+            {{ cart_plant_form }}
+            {% csrf_token %}
+            <input type="submit" value="Add to cart">
+        </form>
     </div>
 {% endblock %}

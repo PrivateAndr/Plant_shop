@@ -1,6 +1,8 @@
 # from django.http import HttpResponse
 from django.shortcuts import render, get_object_or_404
 from .models import Category, Plant
+from cart.forms import CartAddPlantForm
+
 
 def plant_list(request, category_slug=None):
     category = None
@@ -20,6 +22,8 @@ def plant_detail(request, id, slug):
                               id=id,
                               slug=slug,
                               available=True)
+    cart_plant_form = CartAddPlantForm()
     return render(request,
                   'shop/plants/detail.html',
-                  {'plant': plant})
+                  {'plant': plant,
+                   'cart_plants_form': cart_plant_form})
