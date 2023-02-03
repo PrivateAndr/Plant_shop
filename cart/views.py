@@ -12,8 +12,8 @@ def cart_add(request, plant_id):
     if form.is_valid():
         cd = form.cleaned_data
         cart.add(plant=plant,
-                 quantity=cd['quantity'],
-                 update_quantity=cd['update'])
+                quantity=cd['quantity'],
+                update_quantity=cd['update'])
     return redirect('cart:cart_detail')
 
 
@@ -26,4 +26,7 @@ def cart_remove(request, plant_id):
 
 def cart_detail(request):
     cart = Cart(request)
+    for item in cart:
+        item['update_quantity'] =CartAddPlantForm(initial={'quantity': item['quantity'],
+                                                        'update': True})
     return render(request, 'cart/detail.html', {'cart':cart})

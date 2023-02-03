@@ -26,4 +26,4 @@ def plant_detail(request, id, slug):
     return render(request,
                   'shop/plants/detail.html',
                   {'plant': plant,
-                   'cart_plants_form': cart_plant_form})
+                   'cart_plant_form': cart_plant_form})

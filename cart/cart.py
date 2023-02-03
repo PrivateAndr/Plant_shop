@@ -17,8 +17,8 @@ class Cart(object):
     def add(self, plant, quantity=1, update_quantity=False):
         plant_id = str(plant.id)
         if plant_id not in self.cart:
-            self.cart[plant_id] = {'quantiti':0,
-                                   'price': str(plant.price)}
+            self.cart[plant_id] = {'quantity':0,
+                                'price': str(plant.price)}
         if update_quantity:
             self.cart[plant_id]['quantity'] = quantity
         else:
@@ -32,7 +32,7 @@ class Cart(object):
         
         
     def remove(self, plant):
-        plant_id = str[plant.id]
+        plant_id = str(plant.id)
         if plant_id in self.cart:
             del self.cart[plant_id]
             self.save()
@@ -60,4 +60,4 @@ class Cart(object):
     def clear(self):
         del self.session[settings.CART_SESSION_ID]
         self.session.modified = True
-        # self.save()
+        self.save()

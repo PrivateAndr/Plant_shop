@@ -14,9 +14,9 @@ favicon_view = RedirectView.as_view(url='/static/favicon.ico', permanent=True)
 urlpatterns = [
     path('admin/', admin.site.urls),
     re_path(r'^favicon\.ico$', RedirectView.as_view(url='/static/img/favicon.ico', permanent=True)),
-    re_path(r'^cart/', include('cart.urls', namespace='cart')),
-    re_path(r'^', include('shop.urls', namespace='shop')),
+    re_path('cart/', include('cart.urls', namespace='cart')),
+    re_path('', include('shop.urls', namespace='shop')),
 ]
 
 if settings.DEBUG:
-     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
