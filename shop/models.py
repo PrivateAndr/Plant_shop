@@ -17,7 +17,7 @@ class Category(models.Model):
     
     def get_absolute_url(self):
         return reverse("shop:plant_list_by_category", 
-                       args=[self.slug])
+                    args=[self.slug])
     
     
 
@@ -45,5 +45,5 @@ class Plant(models.Model):
     
     def get_absolute_url(self):
         return reverse('shop:plant_detail',
-                       args=[self.id, self.slug])
+                    args=[self.id, self.slug])
     
