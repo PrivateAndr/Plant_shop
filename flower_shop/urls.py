@@ -15,6 +15,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     re_path(r'^favicon\.ico$', RedirectView.as_view(url='/static/img/favicon.ico', permanent=True)),
     re_path('cart/', include('cart.urls', namespace='cart')),
+    re_path('orders/', include('orders.urls', namespace='orders')),
     re_path('', include('shop.urls', namespace='shop')),
 ]
 

@@ -35,6 +35,8 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
 CART_SESSION_ID = 'cart'
 # Application definition
 
+# SESSION_SERIALIZER = 'django.contrib.sessions.serializers.PickleSerializer'
+
 INSTALLED_APPS = [
     'orders.apps.OrdersConfig',
     'cart.apps.CartConfig',
@@ -85,7 +87,7 @@ WSGI_APPLICATION = 'flower_shop.wsgi.application'
 DATABASES = {
         'default': {
             'ENGINE': 'mssql',
-            'NAME': 'flower_shop_1',
+            'NAME': 'Plant_shop_4',
             'USER': 'sa',
             'PASSWORD': '0606',
             'HOST': 'localhost',

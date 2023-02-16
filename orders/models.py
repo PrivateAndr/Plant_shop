@@ -5,7 +5,7 @@ from shop.models import Plant
 class Order(models.Model):
     first_name = models.CharField(max_length=50)
     last_name = models.CharField(max_length=50)
-    phone_number = models.CharField(max_length=14, null=False, blank=False, unique=True)
+    phone_number = models.CharField(max_length=14, blank=False)
     email = models.EmailField()
     address = models.CharField(max_length=250)
     postal_code = models.CharField(max_length=20)
@@ -29,7 +29,7 @@ class Order(models.Model):
 class OrderItem(models.Model):
     order = models.ForeignKey(Order, related_name='items', on_delete=models.PROTECT)
     plant = models.ForeignKey(Plant, related_name='order_items', on_delete=models.PROTECT)
-    price = models.DecimalField(max_digits=10, decimal_places=2)
+    price = models.IntegerField()
     quantity = models.PositiveIntegerField(default=1)
 
     def __str__(self):

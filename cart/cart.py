@@ -2,6 +2,7 @@ from decimal import Decimal
 from django.conf import settings
 from shop.models import Plant
 
+CART_SESSION_ID = 'cart'
 
 class Cart(object):
     
@@ -27,7 +28,6 @@ class Cart(object):
         
         
     def save(self):
-        self.session[settings.CART_SESSION_ID] = self.cart
         self.session.modified = True
         
         
@@ -45,7 +45,7 @@ class Cart(object):
             self.cart[str(plant.id)]['plant'] = plant 
             
         for item in self.cart.values():
-            item['price'] = Decimal(item['price'])
+            item['price'] = int(item['price'])
             item['total_price'] = item['price'] * item['quantity']
             yield item
             
@@ -55,9 +55,9 @@ class Cart(object):
     
     
     def get_total_price(self):
-        return sum(Decimal(item['price']) * item['quantity'] for item in self.cart.values())
+       return sum(int(item['price']) * item['quantity'] for item in
+            self.cart.values())
         
     def clear(self):
-        del self.session[settings.CART_SESSION_ID]
-        self.session.modified = True
+        del self.session[CART_SESSION_ID]
         self.save()
