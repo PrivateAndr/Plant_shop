@@ -17,6 +17,7 @@ urlpatterns = [
     re_path('cart/', include('cart.urls', namespace='cart')),
     re_path('orders/', include('orders.urls', namespace='orders')),
     re_path('', include('shop.urls', namespace='shop')),
+    re_path('account/', include('account.urls')),
 ]
 
 if settings.DEBUG:
