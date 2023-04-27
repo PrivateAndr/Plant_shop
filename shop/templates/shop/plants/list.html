@@ -19,14 +19,24 @@
     </div>
     <div id="main" class="plant-list">
         <h1>{% if category %}{{ category.name }}{% else %}Plants{% endif %}</h1>
+
         {% for plant in plants%}
-            <div class="item">
+
+            <div id="card" class="card" style="width: 18rem;">
+                <img src="{% if plant.image %}{{ plant.image.url }}{% else %}{% static "img/no_image.png" %}{% endif %}">
+                <div class="card-body">
+                    <a href="{{ plant.get_absolute_url }}">{{ plant.name }}</a><br>
+                    <p class="card-text">${{ plant.price }}</p>
+                </div>
+            </div>
+
+            {% comment %} <div class="item">
                 <a href="{{ plant.get_absolute_url }}">
                     <img src="{% if plant.image %}{{ plant.image.url }}{% else %}{% static "img/no_image.png" %}{% endif %}">
                 </a>
                 <a href="{{ plant.get_absolute_url }}">{{ plant.name }}</a><br>
                 ${{ plant.price }}
-            </div>
+            </div> {% endcomment %}
         {% endfor %}
     </div>
 {% endblock %}
