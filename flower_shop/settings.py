@@ -93,16 +93,12 @@ WSGI_APPLICATION = 'flower_shop.wsgi.application'
 
 DATABASES = {
         'default': {
-            'ENGINE': 'mssql',
-            'NAME': 'Plant_shop_4',
-            'USER': 'sa',
+            'ENGINE': 'django.db.backends.postgresql_psycopg2',
+            'NAME': 'Plant_shop_1',
+            'USER': 'postgres',
             'PASSWORD': '0606',
             'HOST': 'localhost',
             'PORT': '',
-
-            'OPTIONS': {
-                'driver': 'ODBC Driver 17 for SQL Server',
-            },
         },
     }
 
