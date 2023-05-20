@@ -3,6 +3,10 @@ from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login
 from .forms import LoginForm, UserRegistrationForm
 from django.contrib import messages
+from django.contrib.auth.models import User
+from orders.models import Order
+from orders.models import OrderItem
+from django.shortcuts import render, get_object_or_404
 
 from django.contrib.auth.decorators import login_required
 
@@ -44,3 +48,13 @@ def register(request):
     else:
         user_form = UserRegistrationForm()
     return render(request, 'account/registration/register.html', {'user_form': user_form})
+
+
+def orders(request):
+    user = request.user
+    orders = Order.objects.filter(user=user)
+    return render(request, 'account/orders/orders.html', {'user': user, 'orders': orders})
+
+def order_detail(request, order_id):
+    order = get_object_or_404(Order, id=order_id, user=request.user)
+    return render(request, 'account/orders/order_detail.html', {'order': order})

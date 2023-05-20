@@ -1,0 +1,20 @@
+{% extends "shop/base.html" %}
+
+{% block content %}
+    <h2>Order Detail - Order ID: {{ order.id }}</h2>
+
+    <p>First Name: {{ order.first_name }}</p>
+    <p>Last Name: {{ order.last_name }}</p>
+    <!-- Виведення інших полів замовлення -->
+
+    <h4>Items:</h4>
+    <ul>
+        {% for item in order.items.all %}
+            <li>{{ item.plant.name }} - Quantity: {{ item.quantity }} - Price: {{ item.price }}</li>
+        {% empty %}
+            <li>No items found for this order.</li>
+        {% endfor %}
+    </ul>
+
+    <a href="{% url 'orders' %}">Back to Orders</a>
+{% endblock %}

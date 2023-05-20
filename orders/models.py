@@ -1,8 +1,10 @@
 from django.db import models
 from shop.models import Plant
+from django.contrib.auth.models import User
 
 
 class Order(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE, default=1)
     first_name = models.CharField(max_length=50)
     last_name = models.CharField(max_length=50)
     phone_number = models.CharField(max_length=14, blank=False)
