@@ -16,5 +16,19 @@
         {% endfor %}
     </ul>
 
+    <h2>Total Cost: {{ order.total_cost }} $</h2>
+
+    {% if order.paid %}
+        <p>Payment received</p>
+    {% endif %}
+
+    {% if order.sent %}
+        <p>Order sent</p>
+    {% endif %}
+
+    {% if order.arrived %}
+        <p>Order arrived</p>
+    {% endif %}
+
     <a href="{% url 'orders' %}">Back to Orders</a>
 {% endblock %}

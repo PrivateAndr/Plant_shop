@@ -9,7 +9,9 @@
         <h3>Order ID: {{ order.id }}</h3>
         <p>First Name: {{ order.first_name }}</p>
         <p>Last Name: {{ order.last_name }}</p>
-        <!-- Виведення інших полів замовлення -->
+
+        <h2>Total Cost: {{ order.total_cost }} $</h2>
+
         <a href="{% url 'order_detail' order.id %}">View Details</a>
     </div>
     {% empty %}

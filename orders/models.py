@@ -15,6 +15,10 @@ class Order(models.Model):
     created = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now=True)
     paid = models.BooleanField(default=False)
+    sent = models.BooleanField(default=False)
+    arrived = models.BooleanField(default=False)
+    received = models.BooleanField(default=False)
+    total_cost = models.IntegerField(default=0)
 
     class Meta:
         ordering = ('-created',)

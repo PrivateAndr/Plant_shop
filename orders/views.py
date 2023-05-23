@@ -20,6 +20,8 @@ def order_create(request):
                                             plant=item['plant'],
                                             price=item['price'],
                                             quantity=item['quantity'])
+            order.total_cost = cart.get_total_price()
+            order.save()
             cart.clear()
             return render(request, 'orders/order/created.html', {'order': order})
     else:
