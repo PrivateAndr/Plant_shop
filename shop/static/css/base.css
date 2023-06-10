@@ -1,3 +1,6 @@
+body{
+
+}
 .message {
   padding: 10px;
   margin-bottom: 10px;
@@ -12,4 +15,209 @@
 .error-message {
   background-color: #f2dede;
   color: #a94442;
+}
+
+
+/*\\\\\\\\\! Navbar !////////////*/
+
+.nav-div-side {
+  /*background-color: #005cbf;*/
+  width: 10%;
+  height: 80px;
+ float: left;
+}
+.nav-div-center {
+  /*background-color: #1c7430;*/
+  width: 80%;
+  height: 80px;
+   float: left;
+}
+
+.nav-div-center-hr {
+   border-style: inset;
+   border-width: 1px;
+   margin: 0;
+   position:relative;
+    top: auto;
+}
+
+.nav-div-center-div-top {
+    width: 100%;
+    height: 50%;
+    margin-top: 5px;
+    /*background-color: #0c5460;*/
+}
+
+.nav-div-center-div-bottom{
+    width: 100%;
+    /*background-color: #9fcdff;*/
+    height: 50%;
+}
+.canter-nav-menu1{
+    width: 30%;
+    /*background-color: #1c7430;*/
+    float: left;
+    height: 100%;
+     text-align: center;
+
+}
+
+.canter-nav-menu2 {
+    width: 10%;
+    /*background-color: #005cbf;*/
+    float: left;
+     height: 100%;
+     text-align: center;
+    margin-top: 10px;
+    color: black;
+}
+
+.canter-nav-menu3 {
+    width: 30%;
+    /*background-color: #5a6268;*/
+    float: left;
+     height: 100%;
+     text-align: center;
+}
+
+a {
+    color: black;
+}
+
+
+
+
+
+
+
+
+/*.dropdown-container {*/
+/*      position: relative;*/
+/*      display: inline-block;*/
+/*    }*/
+
+/*    .dropdown-button {*/
+/*      padding: 10px;*/
+/*      background-color: #f0f0f0;*/
+/*      border: none;*/
+/*      cursor: pointer;*/
+/*    }*/
+
+/*    .dropdown-list {*/
+/*      display: none;*/
+/*      position: absolute;*/
+/*      top: 100%;*/
+/*      left: 0;*/
+/*      background-color: #fff;*/
+/*      padding: 10px;*/
+/*      border: 1px solid #ccc;*/
+/*      list-style: none; !* Видаляє маркери списку *!*/
+/*      margin: 0;*/
+/*      width: 200px; !* Задає ширину списку *!*/
+/*      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); !* Додає тінь *!*/
+/*    }*/
+
+/*    .dropdown-container.active .dropdown-list {*/
+/*      display: block;*/
+/*    }*/
+
+/*    .dropdown-list li {*/
+/*      margin-bottom: 5px;*/
+/*    }*/
+
+/*    .dropdown-list a {*/
+/*      text-decoration: none;*/
+/*      color: #333;*/
+/*      display: block; !* Виводить посилання у вигляді блоку *!*/
+/*      padding: 5px; !* Додає відступи для кращого вигляду *!*/
+/*    }*/
+
+/*    .dropdown-list a:hover {*/
+/*      background-color: #f0f0f0; !* Змінює фон при наведенні курсора *!*/
+/*    }*/
+/*    */
+/*    */
+/*    */
+
+
+  .dropdown-container {
+      position: relative;
+      display: inline-block;
+      z-index: 9999;
+    }
+
+    .dropdown-button {
+      padding: 10px;
+      background-color: #ffffff;
+      border: none;
+      cursor: pointer;
+        height: 10px;
+    }
+
+    .dropdown-list {
+      display: none;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      background-color: #fff;
+      padding: 10px;
+      border: 1px solid #ccc;
+      list-style: none; /* Видаляє маркери списку */
+      margin: 0;
+      width: 200px; /* Задає ширину списку */
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Додає тінь */
+    }
+
+    .dropdown-container.active .dropdown-list {
+      display: block;
+    }
+
+    .dropdown-list li {
+      margin-bottom: 5px;
+    }
+
+    .dropdown-list a {
+      text-decoration: none;
+      color: #333;
+      display: block; /* Виводить посилання у вигляді блоку */
+      padding: 5px; /* Додає відступи для кращого вигляду */
+    }
+
+    .hr1 {
+        padding: 2px;
+        margin: 0;
+    }
+
+    /*.dropdown-list a:hover {*/
+    /*  background-color: #f0f0f0; !* Змінює фон при наведенні курсора *!*/
+    /*}*/
+
+#left-sidebar-stg{
+    float: left;
+    width: 10%;
+    height: 40px;
+    /*background-color: #5a6268;*/
+}
+#sidebar {
+    margin-top: 20px;
+    float: left;
+    height: 100%;
+    width: 15%;
+    /*background-color: #005cbf;*/
+}
+.plant-list{
+    margin-top: 20px;
+    width: 70%;
+    /*background-color: #9fcdff;*/
+}
+
+
+
+.plant-list{
+    float: left;
+}
+
+.cart-ls-ts{
+    float: left;
+    margin: 20px;
 }

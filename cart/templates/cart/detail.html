@@ -1,11 +1,9 @@
-{% extends "shop/base.html" %}
+{% extends "shop/base/base.html" %}
 {% load static %}
-
 
 {% block title %}
     Your shopping cart
 {% endblock %}
-
 
 {% block content %}
     <h1>Your shopping cart</h1>
@@ -26,25 +24,25 @@
                 <tr>
                     <td>
                         <a href="{{ plant.get_absolute_url }}">
-                            <img src="
-                                {% if plant.image %}
-                                    {{ plant.image.url }}
-                                {% else %}
-                                    {% static "img/no_image.png" %}
-                                {% endif %}">
-                        </a> 
+                            <img src="{% if plant.image %}{{ plant.image.url }}{% else %}{% static "img/no_image.png" %}{% endif %}">
+                        </a>
                     </td>
                     <td>{{ plant.name }}</td>
-                    {% comment %} <td>
-                        <form action="{% url 'cart:cart_add' plant.id %}" method="post">
-                            {{ item.update_quantity_form.quantity}}
-                            {{ item.update_quantity_form.update }}
-                            <input type="submit" value="Update">
+                    <td>
+
+                        <form id="update-form-{{ item.plant.id }}" action="{% url 'cart:cart_update' item.plant.id %}" method="post">
                             {% csrf_token %}
+                            <div class="cart-quantity">
+                                {{ item.update_quantity_form.quantity.label_tag }}
+                                {{ item.update_quantity_form.quantity }}
+                                <input type="submit" value="Оновити">
+                            </div>
                         </form>
-                    </td> {% endcomment %}
+
+
+                    </td>
                     <td><a href="{% url "cart:cart_remove" plant.id%}">Remove</a></td>
-                    <td>${{ item.quantity }}</td>
+                    <td>{{ item.quantity }}</td>
                     <td class="num">${{ item.price }}</td>
                     <td class="num">${{ item.total_price }}</td>
                 </tr>

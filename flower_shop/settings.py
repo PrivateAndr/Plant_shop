@@ -38,8 +38,8 @@ CART_SESSION_ID = 'cart'
 # LOGIN_URL = 'login'
 # LOGOUT_URL = 'logout'
 
-LOGIN_REDIRECT_URL = '/'
-LOGOUT_REDIRECT_URL = '/'
+LOGIN_REDIRECT_URL = '/shop/'
+LOGOUT_REDIRECT_URL = '/shop/'
 
 # SESSION_SERIALIZER = 'django.contrib.sessions.serializers.PickleSerializer'
 
@@ -93,14 +93,15 @@ WSGI_APPLICATION = 'flower_shop.wsgi.application'
 
 DATABASES = {
         'default': {
-            'ENGINE': 'django.db.backends.postgresql_psycopg2',
-            'NAME': 'Plant_shop_3',
+            'ENGINE': 'django.db.backends.postgresql',
+            'NAME': 'Flower_shop1',
             'USER': 'postgres',
             'PASSWORD': '0606',
             'HOST': 'localhost',
-            'PORT': '',
+            'PORT': '5432',
         },
     }
+
 
 
 # Password validation

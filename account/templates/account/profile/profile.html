@@ -1,0 +1,9 @@
+{% extends "shop/base/base.html" %}
+
+{#{% block title %}Profile{% endblock %}#}
+
+{% block content %}
+    <p>Ім'я: {{ user.first_name }}</p>
+    <p>Прізвище: {{ user.last_name }}</p>
+    <p>Email: {{ user.email }}</p>
+{% endblock %}

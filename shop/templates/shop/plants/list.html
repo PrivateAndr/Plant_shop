@@ -1,9 +1,10 @@
-{% extends "shop/base.html" %}
+{% extends "shop/base/base.html" %}
 {% load static %}
 {% block title %}
     {% if category %}{{ category.name }}{% else %}Plants{% endif %}
 {% endblock %}
 {% block content %}
+    <div id="left-sidebar-stg"></div>
     <div id="sidebar">
         <h3>Categories</h3>
         <ul>
@@ -22,21 +23,25 @@
 
         {% for plant in plants%}
 
-            <div id="card" class="card" style="width: 18rem;">
-                <img src="{% if plant.image %}{{ plant.image.url }}{% else %}{% static "img/no_image.png" %}{% endif %}">
+{#            <div id="card" class="card" style="width: 18rem;">#}
+{#                <img src="{% if plant.image %}{{ plant.image.url }}{% else %}{% static "img/no_image.png" %}{% endif %}">#}
+{#                <div class="card-body">#}
+{#                    <a href="{{ plant.get_absolute_url }}">{{ plant.name }}</a><br>#}
+{#                    <p class="card-text">${{ plant.price }}</p>#}
+{#                </div>#}
+{#            </div>#}
+
+            <div class="card cart-ls-ts" style="width: 16rem;">
+                <!-- Изображение -->
+                <img class="card-img-top" src="{% if plant.image %}{{ plant.image.url }}{% else %}{% static "img/no_image.png" %}{% endif %}">
+                <!-- Текстовый контент -->
+                <p class="card-text">${{ plant.price }}</p>
+                <a href="{{ plant.get_absolute_url }}">{{ plant.name }}</a><br>
                 <div class="card-body">
-                    <a href="{{ plant.get_absolute_url }}">{{ plant.name }}</a><br>
-                    <p class="card-text">${{ plant.price }}</p>
+
                 </div>
             </div>
 
-            {% comment %} <div class="item">
-                <a href="{{ plant.get_absolute_url }}">
-                    <img src="{% if plant.image %}{{ plant.image.url }}{% else %}{% static "img/no_image.png" %}{% endif %}">
-                </a>
-                <a href="{{ plant.get_absolute_url }}">{{ plant.name }}</a><br>
-                ${{ plant.price }}
-            </div> {% endcomment %}
         {% endfor %}
     </div>
 {% endblock %}

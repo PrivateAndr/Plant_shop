@@ -27,3 +27,7 @@ def plant_detail(request, id, slug):
                   'shop/plants/detail.html',
                   {'plant': plant,
                    'cart_plant_form': cart_plant_form})
+
+
+def home_view(request):
+    return render(request,'shop/base/home.html')

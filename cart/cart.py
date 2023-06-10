@@ -1,6 +1,11 @@
 from decimal import Decimal
 from django.conf import settings
 from shop.models import Plant
+from django.views.decorators.http import require_POST
+from django.shortcuts import render, redirect, get_object_or_404
+from shop.models import Plant
+from .forms import CartAddPlantForm
+
 
 CART_SESSION_ID = 'cart'
 
@@ -61,3 +66,9 @@ class Cart(object):
     def clear(self):
         del self.session[CART_SESSION_ID]
         self.save()
+
+    def update_quantity(self, plant, quantity):
+        plant_id = str(plant.id)
+        if plant_id in self.cart:
+            self.cart[plant_id]['quantity'] = quantity
+            self.save()
