@@ -23,5 +23,8 @@ setTimeout(function() {
 
 
 
-//
+function scrollToBlock(blockId) {
+  var block = document.getElementById(blockId);
+  block.scrollIntoView({ behavior: 'smooth' });
+}
 

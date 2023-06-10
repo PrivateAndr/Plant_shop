@@ -19,7 +19,7 @@
         </ul>
     </div>
     <div id="main" class="plant-list">
-        <h1>{% if category %}{{ category.name }}{% else %}Plants{% endif %}</h1>
+
 
         {% for plant in plants%}
 
@@ -35,13 +35,20 @@
                 <!-- Изображение -->
                 <img class="card-img-top" src="{% if plant.image %}{{ plant.image.url }}{% else %}{% static "img/no_image.png" %}{% endif %}">
                 <!-- Текстовый контент -->
-                <p class="card-text">${{ plant.price }}</p>
-                <a href="{{ plant.get_absolute_url }}">{{ plant.name }}</a><br>
-                <div class="card-body">
+                <p class="card-text card-text-l1 card-text-l2">${{ plant.price }}</p>
+                <a class="card-text-l1" href="{{ plant.get_absolute_url }}">{{ plant.name }}</a><br>
 
-                </div>
             </div>
 
         {% endfor %}
     </div>
+
+    <div class="div-ri-pl-li">
+
+    </div>
+
+    <div class="fot-div-li21 fot-vn-div">
+        {% include 'shop/base/footer.html' %}
+    </div>
 {% endblock %}
+

@@ -31,3 +31,6 @@ def plant_detail(request, id, slug):
 
 def home_view(request):
     return render(request,'shop/base/home.html')
+
+def glof_view(request):
+    return render(request, 'shop/blog.html')

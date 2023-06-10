@@ -2,6 +2,8 @@ from django.shortcuts import render, get_object_or_404
 from .models import OrderItem
 from .forms import OrderCreateForm
 from cart.cart import Cart
+from django.contrib import messages
+from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
 from shop.models import Plant
 
@@ -9,6 +11,12 @@ from shop.models import Plant
 @login_required(login_url='login')  # Вимагаємо аутентифікацію для доступу до сторінки
 def order_create(request):
     cart = Cart(request)
+    cart_list_db = request.session.get('cart', {})  # Отримуємо дані кошика з сесії
+
+    if len(cart_list_db) == 0:  # Перевіряємо кількість товарів у кошику
+        messages.error(request, "Your cart is empty. Add items to your cart before placing an order.")
+        return redirect('shop:plant_list')  # Перенаправляємо на сторінку зі списком товарів
+
     if request.method == 'POST':
         form = OrderCreateForm(request.POST)
         if form.is_valid():
